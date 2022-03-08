@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\SS_2022\SWE\Excercise\UE_01\src\discreteEventSimulation\discreteEventSimulation\main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\SS_2022\SWE\Excercise\UE_01\src\discreteEventSimulation\discreteEventSimulation\main.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\SS_2022\SWE\Excercise\UE_01\src\discreteEventSimulation\discreteEventSimulation\main.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\SS_2022\SWE\Excercise\UE_01\src\discreteEventSimulation\discreteEventSimulation\simulator.h(61,19): warning C4018: '>': signed/unsigned mismatch
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\SS_2022\SWE\Excercise\UE_01\src\discreteEventSimulation\discreteEventSimulation\simulator.h(117,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\SS_2022\SWE\Excercise\UE_01\src\discreteEventSimulation\discreteEventSimulation\main.cpp(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  discreteEventSimulation.vcxproj -> C:\Users\stefa\Desktop\StudiumFH_Hauptordner\SS_2022\SWE\Excercise\UE_01\src\discreteEventSimulation\Debug\discreteEventSimulation.exe
