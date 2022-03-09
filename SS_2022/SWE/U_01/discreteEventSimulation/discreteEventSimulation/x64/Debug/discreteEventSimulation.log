@@ -1,0 +1,10 @@
+﻿  eventQueue.cpp
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\Hagenberg\SS_2022\SWE\U_01\discreteEventSimulation\discreteEventSimulation\eventQueue.cpp(61,25): warning C4267: 'return': conversion from 'size_t' to 'long', possible loss of data
+  main.cpp
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\Hagenberg\SS_2022\SWE\U_01\discreteEventSimulation\discreteEventSimulation\main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\Hagenberg\SS_2022\SWE\U_01\discreteEventSimulation\discreteEventSimulation\main.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\Hagenberg\SS_2022\SWE\U_01\discreteEventSimulation\discreteEventSimulation\main.cpp(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\Hagenberg\SS_2022\SWE\U_01\discreteEventSimulation\discreteEventSimulation\simulator.h(117,17): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\stefa\Desktop\StudiumFH_Hauptordner\Hagenberg\SS_2022\SWE\U_01\discreteEventSimulation\discreteEventSimulation\main.cpp(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
+  discreteEventSimulation.vcxproj -> C:\Users\stefa\Desktop\StudiumFH_Hauptordner\Hagenberg\SS_2022\SWE\U_01\discreteEventSimulation\x64\Debug\discreteEventSimulation.exe
