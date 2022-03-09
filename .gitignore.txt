@@ -847,7 +847,7 @@ ASALocalRun/
 
 # Visual Studio History (VSHistory) files
 .vshistory/
-
+.vs/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
@@ -877,5 +877,6 @@ FodyWeavers.xsd
 
 ### VisualStudio Patch ###
 # Additional files built by Visual Studio
+
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,java,visualstudio,visualstudiocode,intellij,jetbrains,python,pycharm
