@@ -849,6 +849,8 @@ ASALocalRun/
 .vshistory/
 .vs/
 vs/
+Debug/
+*.vs/
 
 # Manual Adaption
 # Build results
@@ -903,6 +905,7 @@ FodyWeavers.xsd
 
 # VS Code files for those working on multiple tools
 *.code-workspace
+*.
 
 # Local History for Visual Studio Code
 
