@@ -21,7 +21,7 @@ class Skip_set {
     Skip_node(T inp_key, int inp_lev) {
       key = inp_key;
       level = inp_lev;
-      arr = new std::shared_ptr<Skip_node>[inp_lev +1] {};
+      arr = new std::shared_ptr<Skip_node>[inp_lev] {}; // +1
     }
     ~Skip_node() {
       delete[] arr;
@@ -46,8 +46,22 @@ public:
     //header_arr = new shared_ptr_temp [MAXLEVEL] {nullptr};
   };
 
-  ~Skip_set(){
-    //delete[] header_arr;
+  virtual ~Skip_set(){
+    shared_ptr_temp current = header;
+    int counter = 0;
+    while (current != nullptr) {
+        shared_ptr_temp temp_node = current->arr[0];
+        int temp_lev = current->level;
+        for (int i = 0; i < temp_lev; i++) {
+          current->arr[i] = nullptr;
+          }
+        
+      current = temp_node;
+      cur_size--;
+      //counter++;
+      //cout << "Size:" << cur_size << " Counter: " << counter << endl;
+    }
+
   };
 
   int gen_rand() {
@@ -87,8 +101,8 @@ public:
 
   void insert(T value) {
     shared_ptr_temp current = header;
-    shared_ptr_temp update[MAXLEVEL];
-    memset(update, 0, sizeof(shared_ptr_temp) * (MAXLEVEL));
+    shared_ptr_temp update[MAXLEVEL+1]{}; // MAXLEVEL
+    //memset(update, 0, sizeof(shared_ptr_temp) * (MAXLEVEL));
 
     for (int i = cur_level; i >= 0; i--)
     {
@@ -99,14 +113,14 @@ public:
     }
 
     current = current->arr[0];
-    if (current == NULL || current->key != value)
+    if (current == nullptr || current->key != value)
     {
       int rlevel = gen_rand_level(MAXLEVEL);
 
       if (rlevel > cur_level)
       {
-        for (int i = cur_level +1; i < rlevel; i++) {
-          update[i] = header;
+        for (int i = cur_level +1; i < rlevel; i++) { // cur_level +1
+          update[i] = header; // keinen Plan
         }
         cur_level = rlevel;
       }
@@ -118,15 +132,15 @@ public:
           update[i]->arr[i] = n;
       }
       cur_size++;
-      std::cout << "Successfully Inserted key " << value << "\n";
+      //std::cout << "Successfully Inserted key " << value << "\n";
     }
   };
 
   
   bool erase(T value){
     shared_ptr_temp current = header;
-    shared_ptr_temp update[MAXLEVEL];
-    memset(update, 0, sizeof(shared_ptr_temp) * (MAXLEVEL));
+    shared_ptr_temp update[MAXLEVEL]{}; // -1 
+    //memset(update, 0, sizeof(shared_ptr_temp) * (MAXLEVEL));
     for (int i = cur_level; i >= 0; i--) {
       while (current->arr[i] != nullptr && current->arr[i]->key < value) {
         current = current->arr[i];
@@ -161,7 +175,7 @@ public:
     os << "{" << endl;
 
     int j = 0;
-    for (int i = 0; i <= s.cur_level; i++) {
+    for (int i = 0; i < s.cur_level; i++) {
       j++;
       shared_ptr_temp list = s.header->arr[i];
       os << "Level " << i << ": ";

@@ -21,6 +21,9 @@
     <ClInclude Include="skipNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="simulation_file.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

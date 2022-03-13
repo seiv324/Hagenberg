@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="simulation_file.h" />
     <ClInclude Include="skipNode.h" />
     <ClInclude Include="skipSet.h" />
   </ItemGroup>
