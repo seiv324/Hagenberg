@@ -21,7 +21,7 @@ class Skip_set {
     Skip_node(T inp_key, int inp_lev) {
       key = inp_key;
       level = inp_lev;
-      arr = new std::shared_ptr<Skip_node>[inp_lev] {};
+      arr = new std::shared_ptr<Skip_node>[inp_lev +1] {};
     }
     ~Skip_node() {
       delete[] arr;
@@ -50,8 +50,8 @@ public:
     //delete[] header_arr;
   };
 
-  int gen_rand(int size) {
-    return (float)rand() / size;
+  int gen_rand() {
+    return ((float)rand() / RAND_MAX);
   }
 
   int gen_rand_level(int size) {
@@ -68,6 +68,23 @@ public:
     return cur_size;
   };
 
+  bool find(T value) {
+    shared_ptr_temp current = header;
+    for (int i = cur_level; i >= 0; i--) {
+      while (current->arr[i] != nullptr && current->arr[i]->key < value) {
+        current = current->arr[i];
+      }
+    }
+    current = current->arr[0];
+    if (current != nullptr && current->key == value) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+
   void insert(T value) {
     shared_ptr_temp current = header;
     shared_ptr_temp update[MAXLEVEL];
@@ -75,7 +92,7 @@ public:
 
     for (int i = cur_level; i >= 0; i--)
     {
-      while (current->arr[i] != NULL && current->arr[i]->key < value){
+      while (current->arr[i] != nullptr && current->arr[i]->key < value){
         current = current->arr[i];
       }
      update[i] = current;
@@ -106,27 +123,40 @@ public:
   };
 
   
-  bool erase(T value);
+  bool erase(T value){
+    shared_ptr_temp current = header;
+    shared_ptr_temp update[MAXLEVEL];
+    memset(update, 0, sizeof(shared_ptr_temp) * (MAXLEVEL));
+    for (int i = cur_level; i >= 0; i--) {
+      while (current->arr[i] != nullptr && current->arr[i]->key < value) {
+        current = current->arr[i];
+      }
+      update[i] = current;
+    }
+    current = current->arr[0];
+    if (current != nullptr && current->key == value) {
+      for (int i = 0; i < cur_level; i++) {
+        if (update[i]->arr[i] != current) {
+          break;
+        }
+        else {
+          update[i]->arr[i] = current->arr[i];
+        }
+      }
+        //delete current;
+        while (cur_level > 0 && header->arr[cur_level] == nullptr) {
+          cur_level--;
+        }
+        return true;
+    }
+    else {
+      return false;
+    }
 
-  // Display skip list level wise
-  //void SkipList::displayList()
-  //{
-  //  cout << "\n*****Skip List*****" << "\n";
-  //  for (int i = 0; i <= level; i++)
-  //  {
-  //    Node* node = header->forward[i];
-  //    cout << "Level " << i << ": ";
-  //    while (node != NULL)
-  //    {
-  //      cout << node->key << " ";
-  //      node = node->forward[i];
-  //    }
-  //    cout << "\n";
-  //  }
-  //};
+  };
 
   friend std::ostream& operator << (std::ostream &os, const Skip_set &s){
-
+    os << endl;
     os << "Print List: Level (Node Key | Node Level) " << endl;
     os << "{" << endl;
 

@@ -18,10 +18,16 @@ int main() {
   //  cout << s.gen_rand_level(32) << endl;
   //}
 
+  cout << s.find(2) << endl;
   for (int i = 1; i <=5; i++) {
+    //int adder = (rand()/32);
+    //s.insert(i + adder);
     s.insert(i);
   }
-
+  cout << s << endl;
+  s.erase(2);
+  cout << s.find(2) << endl;
+  cout << s.find(6) << endl;
   cout << s << endl;
  
   return 0;
