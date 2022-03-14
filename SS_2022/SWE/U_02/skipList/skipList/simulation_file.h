@@ -16,10 +16,13 @@ using namespace std;
 using namespace std::chrono;
 
 
-
+/// <summary>
+/// Simulate Insert/Find/Erase of n random integers for skip_set implementation
+/// </summary>
+/// <param name="n"> number of random integers </param>
 void simulate_own_set_int(int n){
   
-  cout << "----- Start Run with n ( " << n << " ) random integers in skip set -----" << endl;
+  /*cout << "----- Start Run with n ( " << n << " ) random integers in skip set -----" << endl;*/
   Skip_set<int> s(0, 0.5);
 
   auto start = high_resolution_clock::now();
@@ -28,15 +31,14 @@ void simulate_own_set_int(int n){
   }
   auto end = high_resolution_clock::now();
   duration<double> diff_ins = end-start;
-  cout << "Time Insert: " << (diff_ins).count() << endl;
-
+  
   start = high_resolution_clock::now();
   for (int i = 0; i < n; i++) {
     s.find(rand());
   }
   end = high_resolution_clock::now();
   duration<double> diff_find = end - start;
-  cout << "Time Search: " << (diff_find).count() << endl;
+  
 
   start = high_resolution_clock::now();
   for (int i = 0; i < n; i++) {
@@ -44,9 +46,12 @@ void simulate_own_set_int(int n){
   }
   end = high_resolution_clock::now();
   duration<double> diff_erase = end - start;
-  cout << "Time Erase: " << (diff_erase).count() << endl;
-  cout << "----- End Run with n ( " << n << " ) random integers in skip set -----" << endl;
-  cout << endl;
+
+  //cout << "Time Insert: " << (diff_ins).count() << endl;
+  //cout << "Time Search: " << (diff_find).count() << endl;
+  //cout << "Time Erase: " << (diff_erase).count() << endl;
+  //cout << "----- End Run with n ( " << n << " ) random integers in skip set -----" << endl;
+  //cout << endl;
 
   std::ofstream ofile;
   std::setprecision(6);
@@ -60,6 +65,12 @@ void simulate_own_set_int(int n){
 
 }
 
+/// <summary>
+/// Generate a string of provided length from an array 
+/// of all letters 
+/// </summary>
+/// <param name="len"> length of randomly assembled string </param>
+/// <returns></returns>
 string generate_rand_string(int len) {
   static const char alphanum[] =
     "0123456789"
@@ -75,9 +86,13 @@ string generate_rand_string(int len) {
   return tmp_s;
 }
 
+/// <summary>
+/// Simulate Insert/Find/Erase of n random strings for skip_set implementation
+/// </summary>
+/// <param name="n"> number of random strings </param>
 void simulate_own_set_string(int n) {
 
-  cout << "----- Start Run with n ( " << n << " ) random strings in skip set -----" << endl;
+  /*cout << "----- Start Run with n ( " << n << " ) random strings in skip set -----" << endl;*/
   Skip_set<string> s("", 0.5);
 
   auto start = high_resolution_clock::now();
@@ -86,25 +101,25 @@ void simulate_own_set_string(int n) {
   }
   auto end = high_resolution_clock::now();
   duration<double> diff_ins = end - start;
-  cout << "Time Insert: " << (diff_ins).count() << endl;
-
+  
   start = high_resolution_clock::now();
   for (int i = 0; i < n; i++) {
     s.find(generate_rand_string(rand()));
   }
   end = high_resolution_clock::now();
   duration<double> diff_find = end - start;
-  cout << "Time Search: " << (diff_find).count() << endl;
-
+  
   start = high_resolution_clock::now();
   for (int i = 0; i < n; i++) {
     s.erase(generate_rand_string(rand()));
   }
   end = high_resolution_clock::now();
   duration<double> diff_erase = end - start;
-  cout << "Time Erase: " << (diff_erase).count() << endl;
-  cout << "----- End Run with n ( " << n << " ) random strings in skip set -----" << endl;
-  cout << endl;
+  //cout << "Time Insert: " << (diff_ins).count() << endl;
+  //cout << "Time Search: " << (diff_find).count() << endl;
+  //cout << "Time Erase: " << (diff_erase).count() << endl;
+  //cout << "----- End Run with n ( " << n << " ) random strings in skip set -----" << endl;
+  //cout << endl;
 
   std::ofstream ofile;
   std::setprecision(6);
@@ -117,10 +132,13 @@ void simulate_own_set_string(int n) {
   ofile.close();
 }
 
-
+/// <summary>
+/// Simulate Insert/Find/Erase of n random integers STL set implementation
+/// </summary>
+/// <param name="n"> number of random integers </param>
 void simulate_set_int(int n) {
 
-  cout << "----- Start Run with n ( " << n << " ) random integers in STL set -----" << endl;
+  //cout << "----- Start Run with n ( " << n << " ) random integers in STL set -----" << endl;
   set<int> s;
 
   auto start = high_resolution_clock::now();
@@ -129,7 +147,6 @@ void simulate_set_int(int n) {
   }
   auto end = high_resolution_clock::now();
   duration<double> diff_ins = end - start;
-  cout << "Time Insert: " << (diff_ins).count() << endl;
 
   start = high_resolution_clock::now();
   for (int i = 0; i < n; i++) {
@@ -137,7 +154,6 @@ void simulate_set_int(int n) {
   }
   end = high_resolution_clock::now();
   duration<double> diff_find = end - start;
-  cout << "Time Search: " << (diff_find).count() << endl;
 
   start = high_resolution_clock::now();
   for (int i = 0; i < n; i++) {
@@ -145,9 +161,11 @@ void simulate_set_int(int n) {
   }
   end = high_resolution_clock::now();
   duration<double> diff_erase = end - start;
-  cout << "Time Erase: " << (diff_erase).count() << endl;
-  cout << "----- End Run with n ( " << n << " ) random integers in STL set -----" << endl;
-  cout << endl;
+  //cout << "Time Insert: " << (diff_ins).count() << endl;
+  //cout << "Time Search: " << (diff_find).count() << endl;
+  //cout << "Time Erase: " << (diff_erase).count() << endl;
+  //cout << "----- End Run with n ( " << n << " ) random integers in STL set -----" << endl;
+  //cout << endl;
 
   std::ofstream ofile;
   std::setprecision(6);
@@ -161,9 +179,14 @@ void simulate_set_int(int n) {
 
 }
 
+
+/// <summary>
+/// Simulate Insert/Find/Erase of n random strings STL set implementation
+/// </summary>
+/// <param name="n"> number of random strings </param>
 void simulate_set_string(int n) {
 
-  cout << "----- Start Run with n ( " << n << " ) random strings in STL set -----" << endl;
+  /*cout << "----- Start Run with n ( " << n << " ) random strings in STL set -----" << endl;*/
   set<string> s;
 
   auto start = high_resolution_clock::now();
@@ -172,15 +195,13 @@ void simulate_set_string(int n) {
   }
   auto end = high_resolution_clock::now();
   duration<double> diff_ins = end - start;
-  cout << "Time Insert: " << (diff_ins).count() << endl;
-
+ 
   start = high_resolution_clock::now();
   for (int i = 0; i < n; i++) {
     s.find(generate_rand_string(rand()));
   }
   end = high_resolution_clock::now();
   duration<double> diff_find = end - start;
-  cout << "Time Search: " << (diff_find).count() << endl;
 
   start = high_resolution_clock::now();
   for (int i = 0; i < n; i++) {
@@ -188,13 +209,16 @@ void simulate_set_string(int n) {
   }
   end = high_resolution_clock::now();
   duration<double> diff_erase = end - start;
-  cout << "Time Erase: " << (diff_erase).count() << endl;
-  cout << "----- End Run with n ( " << n << " ) random STL in skip set -----" << endl;
-  cout << endl;
+
+  //cout << "Time Insert: " << (diff_ins).count() << endl;
+  //cout << "Time Search: " << (diff_find).count() << endl;
+  //cout << "Time Erase: " << (diff_erase).count() << endl;
+  //cout << "----- End Run with n ( " << n << " ) random STL in skip set -----" << endl;
+  //cout << endl;
 
   std::ofstream ofile;
   std::setprecision(6);
-  ofile.open("results_string_int.txt", std::ios::app); //app is append which means it will put the text at the end
+  ofile.open("results_string_set.txt", std::ios::app); //app is append which means it will put the text at the end
 
   ofile << "ins;" << n << ";" << (diff_ins).count() << endl;
   ofile << "find;" << n << ";" << (diff_find).count() << endl;
