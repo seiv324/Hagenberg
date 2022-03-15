@@ -890,6 +890,8 @@ bld/
 *.svclog
 *.scc
 
+#Exclude PNGs
+*.png
 
 # BeatPulse healthcheck temp database
 healthchecksdb
