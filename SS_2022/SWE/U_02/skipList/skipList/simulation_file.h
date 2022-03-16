@@ -193,8 +193,9 @@ void simulate_all(int n) {
   std::ofstream ofile3;
   std::ofstream ofile4;
 
-  int counter = 50000;
+  int counter = 90000;
   int counter_raise = 10000;
+  int rep = 10;
 
   ofile1.open("results_int_self.txt", std::ios::app);
   ofile2.open("results_int_set.txt", std::ios::app);
@@ -206,7 +207,7 @@ void simulate_all(int n) {
   while(counter < n){
     // OWN INT
     Skip_set<int> s1(0, 0.5);
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < rep; i++) {
       auto start = high_resolution_clock::now();
       for (int i = 0; i < counter; i++) {
         s1.insert(rand());
@@ -233,7 +234,7 @@ void simulate_all(int n) {
     // SET INT
     
     set<int> s2;
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < rep; i++) {
       auto start = high_resolution_clock::now();
       for (int i = 0; i < counter; i++) {
         s2.insert(rand());
@@ -260,7 +261,7 @@ void simulate_all(int n) {
 
     // OWN STRING
     Skip_set<string> s3("", 0.5);
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < rep; i++) {
       auto start = high_resolution_clock::now();
       for (int i = 0; i < counter; i++) {
         s3.insert(generate_rand_string(rand()));
@@ -291,7 +292,7 @@ void simulate_all(int n) {
     // STL String
     set<string> s4;
     
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < rep; i++) {
       auto start = high_resolution_clock::now();
       for (int i = 0; i < counter; i++) {
         s4.insert(generate_rand_string(rand()));

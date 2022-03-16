@@ -43,7 +43,7 @@ int main() {
 
   // Stopped at 55 000 iterations -> writing is to slow
 
-  simulate_all(100000);
+  simulate_all(250000);
 
   return 0;
 }
