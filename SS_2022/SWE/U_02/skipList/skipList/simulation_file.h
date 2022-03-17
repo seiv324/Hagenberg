@@ -3,10 +3,9 @@
 
 #include <chrono>
 #include <iostream>
-#include<sstream>
-#include<fstream>
-#include<iomanip>
-
+#include <sstream>
+#include <fstream>
+#include <iomanip>
 #include <set>
 
 #include "skipSet.h";
@@ -193,8 +192,8 @@ void simulate_all(int n) {
   std::ofstream ofile3;
   std::ofstream ofile4;
 
-  int counter = 90000;
-  int counter_raise = 10000;
+  int counter = 101000;
+  int counter_raise = 1000;
   int rep = 10;
 
   ofile1.open("results_int_self.txt", std::ios::app);
