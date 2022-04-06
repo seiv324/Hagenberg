@@ -1,0 +1,98 @@
+<!-- file: build.xml -->
+<!--
+<project name="stack" default="runjar" basedir=".">
+
+  <property name="main.class" value="at.fhooe.swe4.Main" />
+  <property name="program.jar" value="queue.jar" />
+  <property name="bin.dir" value="bin" />
+
+  <target name="create-bin" description="creates output directory">
+    <mkdir dir="${bin.dir}" />
+  </target>
+
+  <target name="compile" depends="create-bin" description="Compile Java sources">
+    <javac srcdir="src" destdir="${bin.dir}" includeantruntime="false">
+      <include name="**/*.java" />
+    </javac>
+  </target>
+
+  <target name="run" depends="compile" description="Run Java Application">
+    <java classname="${main.class}" fork="true" classpath="${bin.dir}">
+      <assertions>  <enable />  </assertions>
+    </java>
+  </target>
+
+  <target name="jar" depends="compile" description="Create Java Package">
+    <jar destfile="${program.jar}">
+      <fileset dir="${bin.dir}" includes="**/*.class" />
+      <manifest>
+        <attribute name="main-class" value="${main.class}" />
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="runjar" depends="jar" description="Run the JAR">
+    <java jar="${program.jar}" fork="true" classpath=".">
+      <assertions>  <enable />  </assertions>
+    </java>
+  </target>
+
+  <target name="clean" description="Delete all build artefacts">
+    <delete file="${program.jar}">
+      <fileset dir="." includes="**/*.class" />
+    </delete>
+  </target>
+
+</project>
+-->
+
+<project name="Heap" default="runjar" basedir=".">
+    <property name="main.class" value="at.fhooe.swe4.Main"/>
+    <property name="program.jar" value="queue.jar"/>
+    <property name="bin.dir" value="bin"/>
+    <path id="classpath">
+        <fileset dir="lib">
+            <include name="*jar"/>
+        </fileset>
+    </path>
+    <target name="create-bin" description="creates output directory">
+        <mkdir dir="${bin.dir}"/>
+    </target>
+    <target name="compile" depends="create-bin" description="Compile Java sources">
+        <javac srcdir="src" destdir="${bin.dir}" includeantruntime="false">
+            <include name="**/*.java"/>
+            <classpath refid="classpath"></classpath>
+        </javac>
+        <javac srcdir="test" destdir="${bin.dir}" includeantruntime="false">
+            <include name="**/*.java"/>
+            <classpath refid="classpath"></classpath>
+        </javac>
+    </target>
+    <target name="run" depends="compile" description="Run Java Application">
+        <java classname="${main.class}" fork="true" classpath="${bin.dir}">
+            <assertions>
+                <enable/>
+            </assertions>
+        </java>
+    </target>
+    <target name="jar" depends="compile" description="Create Java archive">
+        <jar destfile="${program.jar}">
+            <fileset dir="${bin.dir}" includes="**/*.class"/>
+            <manifest>
+                <attribute name="main-class" value="${main.class}"/>
+            </manifest>
+        </jar>
+    </target>
+    <target name="runjar" depends="jar" description="Run the JAR">
+        <java jar="${program.jar}" fork="true" classpath=".">
+            <assertions>
+                <enable/>
+            </assertions>
+        </java>
+    </target>
+    <target name="clean" description="Delete all build artifacts">
+        <delete file="${program.jar}">
+            <fileset dir="." includes="**/*.class"/>
+        </delete>
+    </target>
+</project>
